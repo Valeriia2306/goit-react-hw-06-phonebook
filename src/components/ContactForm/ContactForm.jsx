@@ -1,17 +1,21 @@
 import { Formik, ErrorMessage } from 'formik';
-
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../Redux/createSliceContacts';
+import newContact from '../../service/newContact';
+import { getContacts } from '../../Redux/selectors';
 
 // import styles
 import { Label, Form, Input, Button } from './ContactForm.styled';
 
-const ContactForm = ({ onSubmit }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
   const onSubmitForm = (values, { resetForm }) => {
-    const contacts = { id: nanoid(), ...values };
-
-    onSubmit(contacts);
-    resetForm();
+    if (newContact(contacts, values.name)) {
+      dispatch(addContact(values));
+      resetForm();
+    }
   };
 
   const initialValues = {

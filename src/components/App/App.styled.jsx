@@ -14,7 +14,7 @@ const Container = styled.div`
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
 
-const Tittle = styled.h1`
+const Title = styled.h1`
   font-size: 30px;
   color: #fff;
   font-weight: 900;
@@ -22,10 +22,10 @@ const Tittle = styled.h1`
   margin-bottom: 30px;
 `;
 
-const Subtittle = styled.h2`
+const Subtitle = styled.h2`
   font-size: 27px;
   font-weight: 700;
   text-align: center;
   color: white;
 `;
-export { Tittle, Container, Subtittle };
+export { Title, Container, Subtitle };
